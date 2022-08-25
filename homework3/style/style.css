@@ -1,0 +1,72 @@
+body{
+   background-color: rgb(200, 204, 124);
+}
+
+div {
+   padding: 20px 20px;
+   font-size: 25px;
+   line-height: 16px;
+   background-color: rgb(5, 4, 4);
+   color: rgb(200, 204, 124);
+   border: 0;
+   border-radius: 50px;
+   box-shadow: 3px 3px 5px 0;
+   font-weight: 700;
+   min-width: 120px;
+   font-family: unset;
+   
+}
+button:hover {
+      transition: .3s;
+      background-color: #524426;
+      cursor: pointer;
+      color: rgba(241, 229, 9, 0.965);
+}
+button{
+   border-radius: 50px;
+   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+   background-color: #545710;
+}
+input{
+border-radius: 50px;
+}
+p{
+   color: #c9cf2c;
+}
+input:hover{
+transition: .3s;
+background-color:rgb(200, 204, 124);
+cursor: pointer;
+}
+.img {
+   position: fixed;
+   top: 0px;
+   right: 30px;
+   max-width: 350px;
+}
+.animation{
+   position: relative;
+   height: 10px; 
+   
+
+}
+h2{   
+   color: #0d0e0e;
+   position: absolute;
+   animation: myAnimation 5s infinite;
+}
+@keyframes myAnimation {
+   0% {
+      left:20%;
+   }
+
+  50%{
+   left: 40%;
+      color:rgba(241, 229, 9, 0.965);
+  }
+
+   100% {
+      left: 20%;
+      color: red;
+   }
+} 
