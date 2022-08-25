@@ -14,7 +14,11 @@ div {
    font-weight: 700;
    min-width: 120px;
    font-family: unset;
-   
+}
+div:hover {
+   transition: .3s;
+   background-color: rgba(10, 11, 10, 0.678);
+   cursor: pointer;
 }
 button:hover {
       transition: .3s;
