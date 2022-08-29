@@ -1,11 +1,11 @@
 //підводить число в степінь
 
-document.querySelector(".degreeButton").onclick = ExponentResult
+document.querySelector(".degreeButton").onclick = ExponentResult;
 function ExponentResult() {
-   let a = document.querySelector(".degreeInput1").value
-   let b = document.querySelector(".degreeInput2").value
-   let c = leadsDegree(a, b)
-   document.querySelector(".degreeResult").innerHTML = c
+   let getValue1 = document.querySelector(".degreeInput1").value
+   let getValue2 = document.querySelector(".degreeInput2").value
+   let callLeadsDegree = leadsDegree(getValue1, getValue2)
+   document.querySelector(".degreeResult").innerHTML = callLeadsDegree
 }
 function leadsDegree(x, y) {
    let result = x;
@@ -19,9 +19,9 @@ function leadsDegree(x, y) {
 
 document.querySelector(".newNameButton").onclick = newName
 function newName() {
-   let a = document.querySelector(".newNameInput").value
-   let b = editingName(a)
-   document.querySelector(".newNameResult").innerHTML = b
+   let getValue = document.querySelector(".newNameInput").value
+   let callEditingName = editingName(getValue)
+   document.querySelector(".newNameResult").innerHTML = callEditingName
 }
 function editingName(name) {
    let newName = name.substring(0, 1).toUpperCase() + name.substring(1).toLowerCase();
@@ -32,12 +32,15 @@ function editingName(name) {
 
 document.querySelector(".nettoButton").onclick = netto
 function netto() {
-   let a = document.querySelector(".nettoInput").value
-   let b = сalculateNetto (a)
-   document.querySelector(".nettoResult").innerHTML = b
+   let getValue = document.querySelector(".nettoInput").value
+   let callCalculateNetto = сalculateNetto(getValue)
+   document.querySelector(".nettoResult").innerHTML = callCalculateNetto
 }
 function сalculateNetto(salary) {
-   let salaryNetto = +(salary * 0.805).toFixed(2);
+   const taxPDFO = 18;
+   const taxMilitary = 0.5;
+   const alltaxes = taxPDFO + taxMilitary; 
+   let salaryNetto = +(salary - (salary * alltaxes)/100 ).toFixed(2);
    return salaryNetto;
 }
 
@@ -45,15 +48,16 @@ function сalculateNetto(salary) {
 
 document.querySelector(".countsLettersButton").onclick = countLetterIner
 function countLetterIner () {
-   let a = document.querySelector(".countsLettersInput1").value
-   let b = document.querySelector(".countsLettersInput2").value
-   let c = countLetter(a, b);
-   document.querySelector(".countsLettersDivResult").innerHTML = c
+   let getValue1 = document.querySelector(".countsLettersInput1").value
+   let getValue2 = document.querySelector(".countsLettersInput2").value
+   let callCountLetter = countLetter(getValue1, getValue2);
+   document.querySelector(".countsLettersDivResult").innerHTML = callCountLetter
 }
 function countLetter(string, leter) {
    let counter = 0;
+   const leterSmall = leter.toLowerCase()
    for (let i = 0; i < string.length; i++) {
-      if (string[i].toLowerCase() === leter.toLowerCase()) {
+      if (string[i].toLowerCase() === leterSmall) {
          counter++;
       }
    }
@@ -64,27 +68,30 @@ function countLetter(string, leter) {
 
 document.querySelector(".passGenerationButton").onclick = inerPass
 function inerPass() {
-   let a = document.querySelector(".passGenerationInput").value
-   let b = getRandomPaswword (a)
-   document.querySelector(".passGenerationResult").innerHTML = b
+   let getValue = document.querySelector(".passGenerationInput").value
+   let callGetRandomPaswword = getRandomPaswword(getValue)
+   document.querySelector(".passGenerationResult").innerHTML = callGetRandomPaswword
 }
 function getRandomPaswword(length = 8) {
-   let password = [];
+   let min = 0;
+   let max = 9;   
+   let password = "";
    password.length = length;
-   const randomNumber = () => Math.floor((Math.random() * 9) + 1)
    for (let i = 0; i < length; i++) {
-      password[i] = randomNumber();
+      let randomNumber = pickRandomNumber(min, max)
+      let strinG = String(randomNumber)
+      password += strinG;
    }
-   return +password.join("");
-}
+   return password;
+   }
 
 //видалить з речення букви, які зустрічаються більше 1 разу
 
 document.querySelector(".removeSameButton").onclick = inerUnitLeters
 function inerUnitLeters() {
-   let a = document.querySelector(".removeSameInput").value
-   let b = removesDuplication(a)
-   document.querySelector(".removeSameResult").innerHTML = b
+   let getValue = document.querySelector(".removeSameInput").value
+   let callRemovesDuplication = removesDuplication(getValue)
+   document.querySelector(".removeSameResult").innerHTML = callRemovesDuplication
 }
 function removesDuplication(string) {
    let arr = string.toLowerCase().split("");
@@ -98,10 +105,12 @@ function removesDuplication(string) {
 }
 
 //отримує будь-яке число та виводить найбільшу цифру в цьому числі
-const findMax = (number) => +Math.max(...(number + '').split(''));
-console.log(findMax(456544));
+
+const findMax = (number) => +Math.max(...(number + ''));
+console.log(findMax(45654409));
 
 //повертає випадкове ціле число в діапазоні
+
 function pickRandomNumber(min, max) {
    let randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
    return randomNumber;
@@ -109,10 +118,12 @@ function pickRandomNumber(min, max) {
 console.log(pickRandomNumber(6, 19));
 
 //конвертує долари в гривні та навпаки
+
 function conversion(sum) {
    const exchangeRate = 40;
    let result;
-   if (sum.slice(-3) === 'UAH' || sum.slice(-3) === 'Uah' || sum.slice(-3) === 'uah') {
+   const searchCurrency = sum.slice(-3).toLowerCase;
+   if (searchCurrency === 'uah') {
       result = +(sum.slice(0, -3) / exchangeRate);
    }
    else if (sum.slice(-1) === '$') {
@@ -123,11 +134,12 @@ function conversion(sum) {
    }
    return result;
 }
-console.log(conversion('1485$'))
+console.log(conversion('1784.89$'))
 
 //видаляє всі букви з речення
+
 function deleteLetters(string, letter) {
-   newString = [];
+   let newString = [];
    for (let i = 0; i < string.length; i++) {
       if (string[i].toLowerCase() !== letter.toLowerCase()) {
          newString += string[i];
@@ -136,4 +148,5 @@ function deleteLetters(string, letter) {
    return newString;
 }
 console.log(deleteLetters('what is yor name', 'a'));
+
 
