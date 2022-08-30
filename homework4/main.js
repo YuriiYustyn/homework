@@ -30,9 +30,6 @@ function addDOMPair() {
 }
 
 
-
-
-
 function getTask() {
    let resultNew = [];//накопичує всі елементи result з доданою до кожного темою
    let result = [];//накопичує результати додавання в елемент масиву букву і
