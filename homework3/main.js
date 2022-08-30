@@ -122,7 +122,7 @@ console.log(pickRandomNumber(6, 19));
 function conversion(sum) {
    const exchangeRate = 40;
    let result;
-   const searchCurrency = sum.slice(-3).toLowerCase;
+   const searchCurrency = sum.slice(-3).toLowerCase();
    if (searchCurrency === 'uah') {
       result = +(sum.slice(0, -3) / exchangeRate);
    }
