@@ -5,8 +5,46 @@
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>Document</title>
+<style>
+   .for_text{
+   position: relative;
+   min-height: 100px;
+}
+.text{
+   position: absolute;
+   width: 700px;
+   height: 90px;
+   left: 0;
+   top: 0;
+   animation: myAnimation 10s  infinite;
+}
+@keyframes myAnimation {
+   0% {
+      left:5%;
+   }
+
+  50%{
+   left: 60%;
+      color:rgba(249, 11, 225, 0.965);
+  }
+
+   100% {
+      left: 5%;
+      color: rgb(198, 18, 81);
+   }
+} 
+   #Them{
+   height: 600px;
+   }
+</style>
 </head>
-<body>
+<body id="Them">
+   <div class="for_text">
+      <h1 class="text">Всі функції у консолі</h1>
+   </div>
    <script src="main.js"></script>
+   <script src="three.min.js"></script>
+   <script src="vanta.net.min.js"></script>
+   <script src="app.js"></script>
 </body>
 </html>
