@@ -16,6 +16,7 @@ const pairStudents = createPair(studensBoy)
 console.log(pairStudents);
 
 
+let copyPairStudents = pairStudents.slice(0)
 function getTask(pair) {
    let resultNew = [];
    for (let i = 0; i < pair.length; i++) {
@@ -24,8 +25,8 @@ function getTask(pair) {
    }
    return resultNew
 }
-const pairTask = getTask(pairStudents);
-console.log(getTask(pairStudents));
+const pairTask = getTask(copyPairStudents);
+console.log(pairTask);
 
 
 function getStudentsMarks(units) {
@@ -39,22 +40,23 @@ const studentsMarks = getStudentsMarks(students)
 console.log(studentsMarks);
 
 
-let pairTaskMark = pairTask.slice(0)
+let copyPairTask = pairTask.map(item => item.slice(0))
 function getMarksPairs(pairsCompare) {
-   let randomMark = [];
-      let min = 2;
-      let max = 5;
+   let result = [];
+   let min = 1;
+   let max = 5;
    function markRandom(min, max) {
-      return +Math.floor(Math.random() * (max - min + 1) + min)
+      return Math.floor(Math.random() * (max - min + 1) + min)
    }
-      for (let i = 0; i < pairsCompare.length; i++) {
-         randomMark.push(markRandom(min, max))
-         pairsCompare[i].push(markRandom(min, max))
-      }
-      return pairTaskMark
+   for (let i = 0; i < pairsCompare.length; i++) {
+      result.push(pairsCompare[i].concat(markRandom(min, max)))
+
    }
-   const randonMark = getMarksPairs(pairTaskMark);
-   console.log(randonMark);
+   return result
+}
+const randonMark = getMarksPairs(copyPairTask);
+console.log(randonMark);
+
 
 const findSelectorPair = document.querySelector(".div_createPair")
 findSelectorPair.onclick = addDOMPair;
@@ -68,6 +70,7 @@ function addDOMPair() {
       findSelectorPair.appendChild(rawPair)
    }
 }
+
 
 const findSelectorTask = document.querySelector(".div_createPair2")
 findSelectorTask.onclick = addDOMPair2;
@@ -83,6 +86,7 @@ function addDOMPair2() {
    }
 }
 
+
 const findSelectorMark = document.querySelector(".div_createPair3")
 findSelectorMark.onclick = addDOMPair3;
 function addDOMPair3() {
@@ -96,6 +100,7 @@ function addDOMPair3() {
       findSelectorTask.appendChild(rawPair)
    }
 }
+
 
 const findSelectorPairMark = document.querySelector(".div_createPair4")
 findSelectorPairMark.onclick = addDOMPair4;
