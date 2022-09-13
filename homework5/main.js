@@ -26,8 +26,8 @@ function getMedian(...numbers) {
       let middleIndexOfArray = (finishSort.length - 1) / 2
       return finishSort[middleIndexOfArray]
    } else {
-      let indexAverage = (finishSort.length / 2)
-      let frontIndexAverage = (finishSort.length / 2 - 1)
+      let indexAverage = finishSort.length / 2
+      let frontIndexAverage = finishSort.length / 2 - 1
       let firstNumer = finishSort[indexAverage]
       let secondNumber = finishSort[frontIndexAverage]
       return (firstNumer + secondNumber) / 2
