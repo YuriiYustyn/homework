@@ -23,16 +23,20 @@ console.log(getTotalTaxes.call(latvia))
 function getMySalary(){
    let max = 2000
    let min = 1500
-   const newSalary = +(Math.random() * (max - min) + min).toFixed(2)
+   let randomSalary = getRandomNumber(max, min)
+   let nummularyTax = +(randomSalary * this.tax).toFixed(2)
+   let benefit = +(randomSalary - nummularyTax).toFixed(2)
    const object = {
-      salary: newSalary,
-      taxes: this.tax,
-      profit: +(newSalary - (newSalary * this.tax)).toFixed(2)
+      salary: getRandomNumber(max,min),
+      taxes: nummularyTax,
+      profit: benefit
    }
    console.log(object)
 }
 const mySalary = getMySalary.bind(ukraine)
+setInterval(mySalary, 10000)
 
-setInterval(mySalary,10000)
-
-
+function getRandomNumber(max, min) {
+   let randomNumber = +(Math.random() * (max - min) + min).toFixed(2)
+   return randomNumber
+}
