@@ -26,10 +26,10 @@ const students = [{
 
 // поверне список предметів для конкретного студента
 function getSubjects(student) {
-   let result = ""
+   let result = []
    for (let key in student.subjects) {
-      redactedWords = (key.slice(0, 1).toUpperCase() + (key.slice(1).toLowerCase()))
-      result += (redactedWords.replace('_', ' ')) + "    "
+      let redactedWords = key.slice(0, 1).toUpperCase() + (key.slice(1).toLowerCase())
+      result.push(redactedWords.replace('_', ' ')) + "    "
    }
    return result
 }
@@ -37,31 +37,33 @@ console.log(getSubjects(students[0]));
 
 // поверне середню оцінку
 function getAverageMark(student) {
-   let marks = Object.values(student.subjects).reduce((acc, item) => acc.concat(item))
+   let marks = Object.values(student.subjects).flat()
    let sumMark = marks.reduce((acc, item) => acc + item)
    return +(sumMark / marks.length).toFixed(2)
 }
 console.log(getAverageMark(students[1]))
 
 // поверне інформацію загального виду по переданому студенту
+let { name, course } = students[0]
 function getStudentInfo(student) {
    return {
-      name: student.name,
-      course: student.course,
+      name: name,
+      course: course,
       averageMark: getAverageMark(student)
    }
 }
 console.log(getStudentInfo(students[0]));
 
 // поверне імена студентів у алфавітному порядку
-const getStudentsNames = (allStudents => allStudents.map(el => el.name).sort());
+const getStudentsNames = allStudents => allStudents.map(el => el.name).sort();
 console.log(getStudentsNames(students));
 
 // поверне кращого студента зі списку по показнику середньої оцінки
 function getBestStudent(arrForStudents) {
    let markAllStudents = arrForStudents.map(el => getAverageMark(el))
    let maxMark = Math.max(...markAllStudents)
-   return arrForStudents[markAllStudents.indexOf(maxMark)].name
+   let bestStudent = arrForStudents[markAllStudents.indexOf(maxMark)].name
+   return bestStudent
 }
 console.log(getBestStudent(students));
 
@@ -69,9 +71,15 @@ console.log(getBestStudent(students));
 function calculateWordLetters(test) {
    let result = {}
    let calculateLetters = test.split("").map(el => {
-      return result[el] !== undefined ? ++result[el] : result[el] = 1
-   })
-   return result
+      if (!result[el]) {
+         result[el] = 1
+      }
+      else {
+         ++result[el]
+      }
+   }
+   )
+return result
 }
 console.log(calculateWordLetters("Helleol"));
 
