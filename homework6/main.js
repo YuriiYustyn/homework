@@ -44,15 +44,15 @@ function getAverageMark(student) {
 console.log(getAverageMark(students[1]))
 
 // поверне інформацію загального виду по переданому студенту
-let { name, course } = students[0]
 function getStudentInfo(student) {
+   let { name, course } = student
    return {
       name: name,
       course: course,
       averageMark: getAverageMark(student)
    }
 }
-console.log(getStudentInfo(students[0]));
+console.log(getStudentInfo(students[2]));
 
 // поверне імена студентів у алфавітному порядку
 const getStudentsNames = allStudents => allStudents.map(el => el.name).sort();
