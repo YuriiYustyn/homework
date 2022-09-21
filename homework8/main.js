@@ -21,7 +21,7 @@ class Student {
    }
    getAverageMark() {
       let sum = this.marks.reduce((acc, item) => acc + item)
-      return sum / (this.marks).length
+      return sum / this.marks.length
    }
    getDismiss() {
       this.dismiss = true
@@ -56,17 +56,20 @@ console.log(ostap.marksArr);
 console.log("////////////////////////////////////////ADWANCED//////////////////////////////////////////////////")
 
 class BudgetStudent extends Student {
-   constructor(scholarship, university, course, fullName, marks) {
+   constructor(university, course, fullName, marks) {
       super(university, course, fullName, marks)
-      this.scholarship = scholarship
       this.dismiss = false
-      this.getScholarship = setInterval(() => {
-         return !this.dismiss && this.getAverageMark() >= 4 ? console.log('Ви отримали 1400 грн стипендії') : console.log('Лузер')
-      }, 30000)
    }
-
+   averageMark() {
+      return this.getAverageMark()
+   }
+   scholarship() {
+      return !this.dismiss && this.averageMark() >= 4 ? console.log('Ви отримали 1400 грн стипендії') : console.log('Лузер')
+   }
 }
+const oleg = new BudgetStudent("ТНЕУ м.Тернопіль", 2, 'Oleg Babay', [4, 5, 3, 5, 4])
+setInterval(function () { oleg.scholarship() }, 5000)
 
-const oleg = new BudgetStudent(true, "ТНЕУ м.Тернопіль", 2, 'Oleg Babay', [4, 5, 5, 5, 4])
+
 
 
