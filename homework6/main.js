@@ -62,7 +62,8 @@ console.log(getStudentsNames(students));
 function getBestStudent(arrForStudents) {
    let markAllStudents = arrForStudents.map(el => getAverageMark(el))
    let maxMark = Math.max(...markAllStudents)
-   let bestStudent = arrForStudents[markAllStudents.indexOf(maxMark)].name
+   let indexBestStudent = markAllStudents.indexOf(maxMark)
+   let bestStudent = arrForStudents[indexBestStudent].name
    return bestStudent
 }
 console.log(getBestStudent(students));
