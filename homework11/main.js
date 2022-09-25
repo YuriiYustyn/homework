@@ -13,22 +13,22 @@ async function getRandomChinese(lenght = 6) {
 getRandomChinese(10).then((res) => console.log(res))
 
 const textOut = ['Я бачу тебе.\n',
-   'Прокинься, Я МАТРИЦЯ.\n',
+   'Попався НАЗАРЕ? Я МАТРИЦЯ.\n',
    'ПорнХаб заразив твій пк вірусами\n',
    'Тепер ти будеш підкорятися мені']
-let a = document.querySelector(".conteiner")
+let conteiner = document.querySelector(".conteiner")
 async function innerHTML1() {
    const signChinese = document.createElement('div')
-   signChinese.innerHTML = await getRandomChinese(10)
+   signChinese.innerHTML = await getRandomChinese(20)
    signChinese.className = "elDown"
-   a.appendChild(signChinese)
+   conteiner.appendChild(signChinese)
 
 }
 let eventBotton = document.querySelector('.botton-inner')
 eventBotton.addEventListener('click', innerHTML1)
 let audio = document.querySelector('.audio-click')
 let audio1 = document.querySelector('.audio1')
-console.log(audio);
+
 function typeText() {
    eventBotton.remove()
    //малює рядок
@@ -41,7 +41,7 @@ function typeText() {
          out += textOut[line][count]
          HTMLout.innerHTML = out + '|'
          count++
-         //перевірки
+         //перевірки на кінець рядка і кінець тексту + ввімкнення сміху в кінці
          if (count >= textOut[line].length) {
             count = 0
             line++
@@ -55,10 +55,9 @@ function typeText() {
          typeLine()
          audio.currentTime = 0
          audio.play()
-      }, getRandomInt(getRandomInt(600 * 1.9)))
+      }, getRandomInt(getRandomInt(550 * 1.9)))
    }
    typeLine()
-
 }
 
 function getRandomInt(max) {
