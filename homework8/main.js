@@ -60,15 +60,13 @@ class BudgetStudent extends Student {
       super(university, course, fullName, marks)
       this.dismiss = false
    }
-   averageMark() {
-      return this.getAverageMark()
-   }
+
    scholarship() {
-      return !this.dismiss && this.averageMark() >= 4 ? console.log('Ви отримали 1400 грн стипендії') : console.log('Лузер')
+   return !this.dismiss && this.getAverageMark() >= 4 ? console.log('Ви отримали 1400 грн стипендії') : console.log('Лузер')
    }
 }
 const oleg = new BudgetStudent("ТНЕУ м.Тернопіль", 2, 'Oleg Babay', [4, 5, 3, 5, 4])
-setInterval(function () { oleg.scholarship() }, 5000)
+setInterval(()=> oleg.scholarship(), 5000)
 
 
 
