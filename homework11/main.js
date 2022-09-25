@@ -28,6 +28,7 @@ let eventBotton = document.querySelector('.botton-inner')
 eventBotton.addEventListener('click', innerHTML1)
 let audio = document.querySelector('.audio-click')
 let audio1 = document.querySelector('.audio1')
+let audio2 = document.querySelector('.audio2')
 
 function typeText() {
    eventBotton.remove()
@@ -36,7 +37,7 @@ function typeText() {
    let count = 0
    let out = ''
    let HTMLout = document.querySelector('.out')
-   function typeLine() {
+   async function typeLine() {
       let interval = setTimeout(function () {
          out += textOut[line][count]
          HTMLout.innerHTML = out + '|'
@@ -48,13 +49,16 @@ function typeText() {
             if (line == textOut.length) {
                clearTimeout(interval)
                HTMLout.innerHTML = out
-               audio1.play()
+               // audio2.play()
+               setTimeout(() => audio1.play(),2700 )
+               audio2.play()
                return true
             }
          }
          typeLine()
          audio.currentTime = 0
          audio.play()
+   
       }, getRandomInt(getRandomInt(550 * 1.9)))
    }
    typeLine()

@@ -1,34 +1,40 @@
 body{
-   background-image: url('img/1646011848_3-abrakadabra-fun-p-zhivie-oboi-na-rabochii-stol-matritsa-3.jpg');
-}
+   background-image: url(img/1j6F.gif );
+    background-size: 100%; 
+   /* background-repeat: no-repeat; */
+   /* background-attachment: fixed; */
+   }
+
 .elDown{
-   background-color: rgb(0, 0, 0);
+   border:  8px double rgb(72, 209, 30);
+   background-color:rgb(0, 0, 0);
    font-size: 50px;
    text-align: center;
-   color:green;
+   color:rgb(60, 231, 17);
 }
 .out{
    background-color: black;
-   font-size: 25px;
-   font-family: monospace;
-   color: green;
+   border: 8px double rgb(7, 149, 14);
+ color: rgb(60, 231, 17);
 }
 img{
-   width: 200px;
-   height: 150px;
+   border:5px solid rgb(242, 234, 14) ;
+   width: 100px;
+   height: 100px;
    border-radius: 50%;
 }
 .botton-inner{
+   border:5px solid rgb(242, 234, 14);
+   background-color:rgb(1, 1, 1) ;
    position: absolute;
-   background-color: rgb(21, 235, 21);
-   height: 100px;
-   width: 400px;
-   color: black;
+   height: 110px;
+   width: 80%;
+   color: green;
    border-radius: 5%;
-   font-size: 40px;
-   margin-top: 12px;
-   margin-left:200px ;
+   font-size: 30px;
+   margin-top: 2px;
+   margin-left:68px ;
 }
 .botton-inner:hover{
-   background-color: yellow;
+   background-color: rgb(187, 231, 15);
 }
