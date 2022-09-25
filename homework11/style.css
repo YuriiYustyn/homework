@@ -1,31 +1,33 @@
-body{
+body {
    background-image: url(img/1j6F.gif );
-    background-size: 100%; 
-   /* background-repeat: no-repeat; */
-   /* background-attachment: fixed; */
-   }
+   background-size: 100%;
 
-.elDown{
-   border:  8px double rgb(72, 209, 30);
-   background-color:rgb(0, 0, 0);
+}
+
+.elDown {
+   border: 8px double rgb(72, 209, 30);
+   background-color: rgb(0, 0, 0);
    font-size: 50px;
    text-align: center;
-   color:rgb(60, 231, 17);
+   color: rgb(60, 231, 17);
 }
-.out{
+
+.out {
    background-color: black;
    border: 8px double rgb(7, 149, 14);
- color: rgb(60, 231, 17);
+   color: rgb(60, 231, 17);
 }
-img{
-   border:5px solid rgb(242, 234, 14) ;
+
+img {
+   border: 5px solid rgb(242, 234, 14);
    width: 100px;
    height: 100px;
    border-radius: 50%;
 }
-.botton-inner{
-   border:5px solid rgb(242, 234, 14);
-   background-color:rgb(1, 1, 1) ;
+
+.botton-inner {
+   border: 5px solid rgb(242, 234, 14);
+   background-color: rgb(1, 1, 1);
    position: absolute;
    height: 110px;
    width: 80%;
@@ -33,8 +35,9 @@ img{
    border-radius: 5%;
    font-size: 30px;
    margin-top: 2px;
-   margin-left:68px ;
+   margin-left: 68px;
 }
-.botton-inner:hover{
-   background-color: rgb(187, 231, 15);
+
+.botton-inner:hover {
+   background-color: rgb(20, 21, 17);
 }
