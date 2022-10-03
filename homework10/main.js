@@ -15,7 +15,7 @@ function elementReproduction(item, i) {
    item.currentTime = 0
    item.play()
    divButton[i].classList.toggle("elDown")
-   setTimeout(() => divButton[i].className = 'el' , 300)
+   setTimeout(() => divButton[i].classList.toggle('elDown'),300)
 }
 
 divButton.forEach((el, ind) => {
