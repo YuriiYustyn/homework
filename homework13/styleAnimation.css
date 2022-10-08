@@ -1,0 +1,164 @@
+.animation0 {
+   text-align: center;
+   background-color: azure;
+   color: rgb(247, 89, 16);
+   background-repeat: no-repeat;
+   background-size: 100% 100%;
+   position: absolute;
+   width: 65px;
+   height: 82px;
+   animation: myAnimation0 3s;
+   animation-fill-mode: forwards;
+}
+
+@keyframes myAnimation0 {
+   0% {
+      font-size: 2px;
+      width: 65px;
+      height: 82px;
+      top: 0;
+      left: 400px;
+   }
+   34% {
+      font-size: 12px;
+      width: 75px;
+      height: 100px;
+      left: 300px;
+      top: 200px;
+   }
+   100% {
+      background: url(img/1.jpg);
+      background-size: 100% 80%;
+      background-repeat: no-repeat;
+      opacity: 0.9;
+      font-size: 30px;
+      width: 200px;
+      height: 340px;
+      left: 640px;
+      top: 320px;
+      background-position-y: bottom;
+   }
+}
+
+.animation1 {
+   text-align: center;
+   background-color: azure;
+   color: rgb(247, 89, 16);
+   background-repeat: no-repeat;
+   background-size: 100% 100%;
+   position: absolute;
+   width: 65px;
+   height: 82px;
+   animation: myAnimation1 3s;
+   animation-fill-mode: forwards;
+}
+
+@keyframes myAnimation1 {
+   0% {
+      font-size: 2px;
+      width: 65px;
+      height: 82px;
+      top: 0;
+      left: 400px;
+   }
+   34% {
+      font-size: 12px;
+      width: 75px;
+      height: 100px;
+      left: 300px;
+      top: 200px;
+   }
+   100% {
+      background: url(img/2.png);
+      background-size: 100% 80%;
+      font-size: 30px;
+      width: 200px;
+      height: 340px;
+      left: 430px;
+      top: 320px;
+      background-position-y: bottom;
+      background-repeat: no-repeat;
+   }
+}
+
+.animation2 {
+   text-align: center;
+   background-color: azure;
+   color: rgb(247, 89, 16);
+   background-repeat: no-repeat;
+   background-size: 100% 100%;
+   position: absolute;
+   width: 65px;
+   height: 82px;
+   animation: myAnimation2 3s;
+   animation-fill-mode: forwards;
+}
+
+@keyframes myAnimation2 {
+   0% {
+      font-size: 2px;
+      width: 65px;
+      height: 82px;
+      top: 0;
+      left: 400px;
+   }
+   34% {
+      font-size: 12px;
+      width: 75px;
+      height: 100px;
+      left: 300px;
+      top: 200px;
+   }
+   100% {
+      background: url(img/3.png);
+      background-size: 100% 80%;
+      font-size: 30px;
+      width: 200px;
+      height: 340px;
+      left: 220px;
+      top: 320px;
+      background-position-y: bottom;
+      background-repeat: no-repeat;
+   }
+}
+
+.animation3 {
+   text-align: center;
+   background: url(img/3.png);
+   color: rgb(247, 89, 16);
+   background-repeat: no-repeat;
+   background-size: 100% 100%;
+   position: absolute;
+   width: 65px;
+   height: 82px;
+   animation: myAnimation3 3s;
+   animation-fill-mode: forwards;
+}
+
+@keyframes myAnimation3 {
+   0% {
+      font-size: 1px;
+      width: 65px;
+      height: 82px;
+      top: 0;
+      left: 400px;
+   }
+   34% {
+      font-size: 5px;
+      width: 75px;
+      height: 100px;
+      left: 300px;
+      top: 200px;
+   }
+   100% {
+      background: url(img/4.png);
+      background-size: 100% 80%;
+      font-size: 30px;
+      width: 200px;
+      height: 340px;
+      left: 10px;
+      top: 320px;
+      background-position-y: bottom;
+      background-repeat: no-repeat;
+   }
+}
