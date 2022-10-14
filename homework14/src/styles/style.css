@@ -1,0 +1,13 @@
+.h1 {
+   background: #3348997d;
+   color: #00ffdc;
+   border: 2px solid #0f00ff;
+   text-align: center;
+}
+
+body {
+   background-size: 100%;
+   background-image: url(https://i.pinimg.com/originals/5d/e2/42/5de24294bad21ec99931f4c362354f22.jpg);
+   background-repeat: no-repeat;
+   background-attachment: fixed;
+}
