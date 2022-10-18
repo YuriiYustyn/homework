@@ -3,8 +3,11 @@ function* createIdGenerator(startSize) {
    let value = startSize
    while (value) {
       let currentValue = yield value
-      currentValue === 'up' ? value = value + 2 : true
-      currentValue === 'down' ? value = value - 2 : true
+      if (currentValue === 'up') {
+         value = value + 2
+      } else if (currentValue === 'down') {
+            value = value - 2
+      }
    }
    console.log(value);
 }
