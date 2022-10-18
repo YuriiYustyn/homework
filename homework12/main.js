@@ -11,40 +11,40 @@ async function getUsers(number) {
    for (let i = 0; i < response.characters.length; i++) {
       let referencesHaracter = await fetch(`${response.characters[i] + language.value}`)
       let haracter = await referencesHaracter.json()
-      console.log(haracter);
-      let newRaw = document.createElement('tr')
-      newRaw.classList = 'tr'
-
-      let foto = document.createElement('img')
-      foto.src = obj[haracter.name || haracter.whrascwo] || `https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0gJc_0giiMNjbm-kvWcnCjXTJXTM_lCmE7Q&usqp=CAU`
-      foto.classList = 'td-foto'
-
-      let tdName = document.createElement('td')
-      tdName.innerHTML = haracter.whrascwo || haracter.name
-      tdName.classList = 'td'
-
-      let tdBirds = document.createElement('td')
-      tdBirds.innerHTML = haracter.birth_year || haracter.rhahrcaoac_roworarc
-      tdBirds.classList = 'td'
-
-      let tdGender = document.createElement('td')
-      if (haracter.gender === "n/a" || haracter.gender === "none" || haracter.gender === "hermaphrodite") {
-         tdGender.innerHTML = `<img src="img/trans.png" height="50px">`;
-      }
-      else if (haracter.rrwowhwaworc) {
-         tdGender.innerHTML = haracter.rrwowhwaworc
-      }
-      else {
-         tdGender.innerHTML = `<img src="img/${haracter.gender}.png" height="50px">`
-      }
-      tdGender.classList = 'td'
-      newRaw.append(foto)
-      newRaw.append(tdName)
-      newRaw.append(tdBirds)
-      newRaw.append(tdGender)
-      divHTML.appendChild(newRaw)
+      renderUsers(haracter)
    }
-   console.log(language.value)
+}
+function renderUsers(person) {
+   let fotoDefoult = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0gJc_0giiMNjbm-kvWcnCjXTJXTM_lCmE7Q&usqp=CAU'
+   let newRaw = document.createElement('tr')
+   let name = person.name || person.whrascwo
+   newRaw.classList = 'tr'
+
+   let foto = document.createElement('img')
+   foto.src = obj[name] || fotoDefoult
+   foto.classList = 'td-foto'
+
+   let tdName = document.createElement('td')
+   tdName.innerHTML = name
+   tdName.classList = 'td'
+
+   let tdBirds = document.createElement('td')
+   tdBirds.innerHTML = person.birth_year || person.rhahrcaoac_roworarc
+   tdBirds.classList = 'td'
+
+   let tdGender = document.createElement('td')
+   if (person.gender === "n/a" || person.gender === "none" || person.gender === "hermaphrodite") {
+      tdGender.innerHTML = `<img src="img/trans.png" height="50px">`;
+   }
+   else if (person.rrwowhwaworc) {
+      tdGender.innerHTML = person.rrwowhwaworc
+   }
+   else {
+      tdGender.innerHTML = `<img src="img/${person.gender}.png" height="50px">`
+   }
+   tdGender.classList = 'td'
+   newRaw.append(foto, tdName, tdBirds, tdGender)
+   divHTML.appendChild(newRaw)
 }
 
 let divButton = document.querySelector('.div-button')
@@ -57,17 +57,21 @@ let numberPage = 1
 async function getPlanets() {
    let reqest = await fetch(`https://swapi.dev/api/starships/?page=${numberPage}`)
    let response = await reqest.json()
-   let planets = await response.results
+   let planets = response.results
    let planetsHTML = document.querySelector('.planetsHTML')
-
-   for (let i = 0; i < planets.length; i++) {
-      let tdPlanet = document.createElement('td')
-      tdPlanet.classList = 'tdPlanets'
-      tdPlanet.textContent = planets[i].name
-      trPlanets.append(tdPlanet)
-   }
+   renderPlanet(planets)
    planetsHTML.append(trPlanets)
 }
+
+function renderPlanet(allplanets) {
+   for (let i = 0; i < allplanets.length; i++) {
+      let tdPlanet = document.createElement('td')
+      tdPlanet.classList = 'tdPlanets'
+      tdPlanet.textContent = allplanets[i].name
+      trPlanets.append(tdPlanet)
+   }
+}
+
 getPlanets()
 
 let trPlanets = document.createElement('tr')
@@ -92,7 +96,6 @@ buttonNext.addEventListener('click', () => {
    }
 }
 )
-
 
 let obj = {
    'Luke Skywalker': 'https://media.contentapi.ea.com/content/dam/star-wars-battlefront-2/images/2019/08/swbf2-refresh-hero-large-heroes-page-luke-skywalker-16x9-xl.jpg.adapt.crop1x1.320w.jpg',
@@ -122,4 +125,3 @@ let obj = {
    'Jek Tono Porkins': 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpwhAw7RgAiIVCUgSIh25JHf8mG4vSSOrUW6UKDGFuczw2gKpfgt3Iq0aXtL5AeqeEj8A&usqp=CAU',
    'Raymus Antilles': 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjyyjt2P5Y8yjzdNaj4FjJ_YiGLeRpSJ2a0w&usqp=CAU'
 }
-
